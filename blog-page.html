@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Artikel - PASARKURMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Filter & Search Section */
+        .controls {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #D2691E;
+            box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #D2691E;
+            color: white;
+            border-color: #D2691E;
+        }
+
+        /* Blog Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            height: 250px;
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #fff5e6;
+            color: #D2691E;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            color: #8B4513;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .blog-date {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .read-more {
+            color: #D2691E;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 0.6rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(-25%, -25%) scale(1.1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .filter-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">🌴 PASARKURMA</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#produk">Produk</a></li>
+                <li><a href="harga-kurma.html">Daftar Harga</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>📰 Blog & Artikel Kurma</h1>
+        <p>Edukasi, Tips, dan Update Terbaru seputar Kurma & Sunnah</p>
+    </section>
+
+    <!-- Filter & Search -->
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari artikel...">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="edukasi">Edukasi</button>
+            <button class="filter-btn" data-category="promo">Promo</button>
+            <button class="filter-btn" data-category="sunnah">Sunnah</button>
+            <button class="filter-btn" data-category="produk">Produk</button>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="container">
+        <div class="blog-grid" id="blogGrid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card" data-category="promo">
+                <div class="blog-image">🌙</div>
+                <div class="blog-content">
+                    <span class="blog-category">Promo</span>
+                    <h2 class="blog-title">Revive the Sunnah — Fresh RUTHOB for Iftar!</h2>
+                    <p class="blog-excerpt">From Saudi → to YOU. Cold chain preserved. Pure, original, prophetic. 85 DAYS to Ramadhan! Starting tomorrow — Facts about Ruthob, Order details, Special Ramadhan packages...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRg2wXGESQm/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card" data-category="edukasi">
+                <div class="blog-image">🌴</div>
+                <div class="blog-content">
+                    <span class="blog-category">Edukasi</span>
+                    <h2 class="blog-title">Ruthob — Fresh from the Tree, Sunnah from the Heart</h2>
+                    <p class="blog-excerpt">Kenapa Nabi Muhammad ﷺ suka berbuka dengan ruthob? Simple je… Ruthob ni juicy, soft, fresh-from-the-tree vibe. Dan kalau tak ada ruthob, Nabi ﷺ akan makan tamr...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRjdWOAEbVe/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card" data-category="edukasi">
+                <div class="blog-image">📚</div>
+                <div class="blog-content">
+                    <span class="blog-category">Edukasi</span>
+                    <h2 class="blog-title">Kenali Kurma Sunnah & Tingkat Kematangannya</h2>
+                    <p class="blog-excerpt">Kurma melalui lima tahap kematangan: Habbuk → Kimri → Khalal → Ruthob → Tamar. Setiap peringkat ada rasa dan manfaat tersendiri, dan ruthob adalah yang paling digemari Rasulullah ﷺ...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRlusXMEdx0/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 4 -->
+            <div class="blog-card" data-category="edukasi">
+                <div class="blog-image">🌿</div>
+                <div class="blog-content">
+                    <span class="blog-category">Kesehatan</span>
+                    <h2 class="blog-title">Manfaat Ruthob untuk Iftar</h2>
+                    <p class="blog-excerpt">Ruthob untuk Iftar memberi tenaga segera, mudah dicerna, kaya serat & mineral dan terbaik untuk pencernaan. Ruthob adalah sunnah yang penuh khasiat untuk berbuka puasa...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRrknW1EQs-/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 5 -->
+            <div class="blog-card" data-category="sunnah">
+                <div class="blog-image">✨</div>
+                <div class="blog-content">
+                    <span class="blog-category">Sunnah</span>
+                    <h2 class="blog-title">Ruthob & Tamr: Dua Nikmat Sunnah</h2>
+                    <p class="blog-excerpt">Ruthob ialah kurma basah yang segar dan lembut — inilah yang Rasulullah ﷺ pilih untuk berbuka jika ada. Tamr pula adalah kurma kering yang manis dan tahan lama...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRwVqFUEdHX/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 6 -->
+            <div class="blog-card" data-category="edukasi">
+                <div class="blog-image">🌾</div>
+                <div class="blog-content">
+                    <span class="blog-category">Story</span>
+                    <h2 class="blog-title">Setiap Kurma Ada Musimnya...</h2>
+                    <p class="blog-excerpt">Dari berubahnya warna di ladang, ke fasa matang, hinggalah siap dipilih untuk anda... semuanya melalui perjalanan yang Allah aturkan dengan begitu indah...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DR1u-6QEeSB/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 7 -->
+            <div class="blog-card" data-category="promo">
+                <div class="blog-image">🎁</div>
+                <div class="blog-content">
+                    <span class="blog-category">Promo</span>
+                    <h2 class="blog-title">Jom! Hidupkan Sunnah Iftar</h2>
+                    <p class="blog-excerpt">Untuk memudahkan keluarga menikmati ruthob segar, kami sediakan 2 pakej: Pakej Barakah Keluarga & Pakej Ihya' Sunnah. Agar setiap rumah dapat merasai manisnya sunnah...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DR6frskEb7i/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 8 -->
+            <div class="blog-card" data-category="promo">
+                <div class="blog-image">🎉</div>
+                <div class="blog-content">
+                    <span class="blog-category">Announcement</span>
+                    <h2 class="blog-title">Pre-Order Ruthob Dibuka Hari Ini!</h2>
+                    <p class="blog-excerpt">Alhamdulillah! Mulakan persiapan Ramadhan dengan mendapatkan ruthob segar, tepat tingkatan kematangannya. Iftar yang menjadi pilihan pertama Nabi ﷺ...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DSFE_6lEdYM/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 9 -->
+            <div class="blog-card" data-category="produk">
+                <div class="blog-image">📱</div>
+                <div class="blog-content">
+                    <span class="blog-category">Tutorial</span>
+                    <h2 class="blog-title">Tempah Ruthob Melalui WhatsApp</h2>
+                    <p class="blog-excerpt">3 langkah mudah: 1) Klik WhatsApp kami 2) Pilih Jenis Ruthob 3) Pilih pakej. Pengambilan dibuka 2 January 2026. Kami juga melayani penghantaran...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DSJrVmjEbJc/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 10 -->
+            <div class="blog-card" data-category="produk">
+                <div class="blog-image">💎</div>
+                <div class="blog-content">
+                    <span class="blog-category">Produk</span>
+                    <h2 class="blog-title">4 Pilihan Jenis Ruthob Premium</h2>
+                    <p class="blog-excerpt">Ruthob Ajwa Premium, Ruthob Sukariy, Ruthob Nabta Sulthan, Ruthob Barhiy. Setiap pilihan disediakan dengan penuh amanah, dijaga kesegarannya sampai ke tangan anda...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DSO6qtPEVA0/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 11 -->
+            <div class="blog-card" data-category="sunnah">
+                <div class="blog-image">📖</div>
+                <div class="blog-content">
+                    <span class="blog-category">Al-Quran</span>
+                    <h2 class="blog-title">Sunnah & Hikmah dari Kisah Maryam</h2>
+                    <p class="blog-excerpt">Ruthob disebut dalam kisah Maryam 'alayhas-salam: "Goncangkanlah pangkal pohon kurma itu… nescaya akan gugur kepadamu ruthob yang segar." — Maryam: 25...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DRodw-LEWyB/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Card 12 -->
+            <div class="blog-card" data-category="produk">
+                <div class="blog-image">💛</div>
+                <div class="blog-content">
+                    <span class="blog-category">Engagement</span>
+                    <h2 class="blog-title">Pernahkah ANDA menikmati Ruthob?</h2>
+                    <p class="blog-excerpt">RAMADHAN tahun ini 1447 H, Attawasol akan mengadakan 4 jenis Ruthob segar dari Saudi. Untuk hadiah iftar atau jamuan masjid, agar tersebar sunnah ini...</p>
+                    <div class="blog-meta">
+                        <span class="blog-date">📅 Desember 2024</span>
+                        <a href="https://www.instagram.com/p/DR3xkAIEa9h/" target="_blank" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">🔍</div>
+            <h3>Artikel tidak ditemukan</h3>
+            <p>Coba kata kunci lain atau filter kategori yang berbeda</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>INFO</h3>
+                <a href="#">Profil Usaha</a>
+                <a href="#">Lowongan</a>
+                <a href="#">Cara Belanja</a>
+                <a href="#">Kontak Kami</a>
+            </div>
+            <div class="footer-section">
+                <h3>CUSTOMER SERVICE</h3>
+                <p>Whatsapp: (+62) 8 222 666 8233</p>
+                <p>Hari: Senin – Ahad</p>
+                <p>Pukul: 08.00 – 20.00 WIB</p>
+            </div>
+            <div class="footer-section">
+                <h3>OFFLINE STORE</h3>
+                <p>Jl Wiratama no.83A, Kec. Tegalrejo, Yogyakarta</p>
+                <p>(Di depan Soto Pak Sholeh)</p>
+            </div>
+            <div class="footer-section">
+                <h3>FIND US</h3>
+                <a href="#">📱 Instagram</a>
+                <a href="#">🗺️ Google Maps</a>
+                <a href="#">📧 Email</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PASAR KURMA HAMIDAH | Toko Grosir & Distributor Kurma di Jogja</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const searchInput = document.getElementById('searchInput');
+        const emptyState = document.getElementById('emptyState');
+        const blogGrid = document.getElementById('blogGrid');
+
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        // Filter by category
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                filterCards();
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterCards();
+        });
+
+        function filterCards() {
+            let visibleCount = 0;
+
+            blogCards.forEach(card => {
+                const category = card.dataset.category;
+                const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                const matchesSearch = title.includes(currentSearch) || excerpt.includes(currentSearch);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide empty state
+            if (visibleCount === 0) {
+                blogGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+            } else {
+                blogGrid.style.display = 'grid';
+                emptyState.style.display = 'none';
+            }
+        }
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        blogCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

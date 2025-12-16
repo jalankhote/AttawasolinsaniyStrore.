@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Harga Kurma Terbaru 2025 - PASARKURMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #FFD700;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #D2691E;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .page-description {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .price-table-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        thead tr {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+
+        th:last-child {
+            text-align: right;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: #fff5e6;
+            transform: scale(1.01);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+
+        .category-row {
+            background: linear-gradient(135deg, #f4e5d3 0%, #e8d4c0 100%) !important;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .category-row:hover {
+            background: linear-gradient(135deg, #e8d4c0 0%, #f4e5d3 100%) !important;
+        }
+
+        .price {
+            text-align: right;
+            color: #D2691E;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .contact-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+            border-radius: 10px;
+            border-left: 4px solid #D2691E;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .contact-box h3 {
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box strong {
+            color: #D2691E;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Sidebar */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #D2691E;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            color: #D2691E;
+            background: #f9f9f9;
+            padding-left: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">🌴 PASARKURMA</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#produk">Produk</a></li>
+                <li><a href="harga-kurma.html">Daftar Harga</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <span>Daftar Harga Kurma</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Daftar Harga Kurma Terbaru 2025</h1>
+        
+        <div class="content-wrapper">
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="page-description">
+                    <p>Sejak tahun 2018 hingga 2024, harga kurma di Indonesia mengalami fluktuasi yang dipengaruhi oleh berbagai faktor, baik dari sisi pasokan maupun permintaan. Pada tahun-tahun sebelum pandemi, harga kurma cenderung meningkat saat bulan Ramadan, ketika permintaan konsumen melonjak secara signifikan.</p>
+                    <br>
+                    <p>Berikut kami sajikan daftar harga kurma dan produk timur tengah terbaru tahun 2025 di PASARKURMA:</p>
+                </div>
+
+                <div class="price-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Produk</th>
+                                <th>Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="category-row">
+                                <td colspan="2">🌴 KURMA</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Khalas Al Sa'ad 10 kg</td>
+                                <td class="price">Rp 310.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Emirates Gold Al Sa'ad 10 kg</td>
+                                <td class="price">Rp 225.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Mesir Golden Valley 10 kg</td>
+                                <td class="price">Rp 240.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Tunisia Palm Fruit 500gr (isi 12 pack)</td>
+                                <td class="price">Rp 600.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Tunisia Madu Sahara 5 kg</td>
+                                <td class="price">Rp 240.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Sukari AlQassim 3 kg</td>
+                                <td class="price">Rp 160.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Sukari Premium Haramain 3 kg</td>
+                                <td class="price">Rp 185.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Ruthob 1 kg</td>
+                                <td class="price">Rp 75.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Ajwa Al Wafi 5 kg</td>
+                                <td class="price">Rp 850.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Ajwa Hamidah 500gr</td>
+                                <td class="price">Rp 90.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Muda Barhee 1 kg</td>
+                                <td class="price">Rp 170.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Medjool Palestina Ranuna 5 kg</td>
+                                <td class="price">Rp 1.000.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Medjool Palestina Ranuna 1 kg</td>
+                                <td class="price">Rp 220.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kurma Bam / Mazafati Barari 600gr</td>
+                                <td class="price">Rp 55.000</td>
+                            </tr>
+                            
+                            <tr class="category-row">
+                                <td colspan="2">🥜 KACANG</td>
+                            </tr>
+                            <tr>
+                                <td>Kacang Almond Panggang Cangkang 1 kg</td>
+                                <td class="price">Rp 160.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kacang Pistachio 1 kg</td>
+                                <td class="price">Rp 230.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kacang Arab / Chickpeas 1 kg</td>
+                                <td class="price">Rp 45.000</td>
+                            </tr>
+                            
+                            <tr class="category-row">
+                                <td colspan="2">🍇 BUAH KERING</td>
+                            </tr>
+                            <tr>
+                                <td>Kismis Manis 1 kg</td>
+                                <td class="price">Rp 75.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kismis Asam Manis 1 kg</td>
+                                <td class="price">Rp 55.000</td>
+                            </tr>
+                            
+                            <tr class="category-row">
+                                <td colspan="2">🍫 COKELAT</td>
+                            </tr>
+                            <tr>
+                                <td>Coklat Kerikil 1 kg</td>
+                                <td class="price">Rp 95.000</td>
+                            </tr>
+                            <tr>
+                                <td>Coklat Turkey Truffle 1 kg</td>
+                                <td class="price">Rp 110.000</td>
+                            </tr>
+                            <tr>
+                                <td>Coklat Turkey Seval 1 kg</td>
+                                <td class="price">Rp 95.000</td>
+                            </tr>
+                            
+                            <tr class="category-row">
+                                <td colspan="2">💧 MINUMAN & MADU</td>
+                            </tr>
+                            <tr>
+                                <td>Air Zam Zam (barcode) 5 liter</td>
+                                <td class="price">Rp 450.000</td>
+                            </tr>
+                            <tr>
+                                <td>Air Zam zam (non-barcode) 5 liter</td>
+                                <td class="price">Rp 350.000</td>
+                            </tr>
+                            <tr>
+                                <td>Madu Arab Al Shifa 500gr</td>
+                                <td class="price">Rp 160.000</td>
+                            </tr>
+                            <tr>
+                                <td>Madu Arab Al Shifa 250gr</td>
+                                <td class="price">Rp 90.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="contact-box">
+                        <h3>📞 Hubungi Kami untuk Pemesanan</h3>
+                        <p>WhatsApp: <strong>+62 8 222 666 8233</strong></p>
+                        <p>Hari: Senin – Ahad (kecuali libur nasional)</p>
+                        <p>Pukul: 08.00 – 20.00 WIB</p>
+                        <a href="https://wa.me/6282226668233?text=Halo%20PASARKURMA,%20saya%20mau%20tanya%20harga%20kurma" class="whatsapp-btn">💬 Chat WhatsApp</a>
+                        <p style="font-size: 0.9rem; margin-top: 1rem; color: #999;">*Harga dapat berubah sewaktu-waktu. Hubungi customer service untuk info terbaru.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/p/DRg2wXGESQm/" target="_blank">🌙 Revive the Sunnah — Fresh RUTHOB for Iftar!</a></li>
+                    <li><a href="https://www.instagram.com/p/DRjdWOAEbVe/" target="_blank">🌴 Ruthob — Fresh from the Tree, Sunnah from the Heart</a></li>
+                    <li><a href="https://www.instagram.com/p/DRlusXMEdx0/" target="_blank">📚 Kenali Kurma Sunnah & Tingkat Kematangannya</a></li>
+                    <li><a href="https://www.instagram.com/p/DRrknW1EQs-/" target="_blank">🌿 Manfaat Ruthob untuk Iftar</a></li>
+                    <li><a href="https://www.instagram.com/p/DSFE_6lEdYM/" target="_blank">🎉 Pre-Order Ruthob Dibuka Hari Ini!</a></li>
+                    <li><a href="blog.html" style="color: #D2691E; font-weight: bold;">📰 Lihat Semua Artikel →</a></li>
+                </ul>
+
+                <h3 style="margin-top: 2rem;">Categories</h3>
+                <ul>
+                    <li><a href="blog.html">📰 Semua Artikel</a></li>
+                    <li><a href="blog.html">📚 Edukasi</a></li>
+                    <li><a href="blog.html">🎁 Promo</a></li>
+                    <li><a href="blog.html">✨ Sunnah</a></li>
+                    <li><a href="blog.html">💎 Produk</a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>INFO</h3>
+                <a href="#">Profil Usaha</a>
+                <a href="#">Lowongan</a>
+                <a href="#">Cara Belanja</a>
+                <a href="#">Kontak Kami</a>
+            </div>
+            <div class="footer-section">
+                <h3>CUSTOMER SERVICE</h3>
+                <p>Whatsapp: (+62) 8 222 666 8233</p>
+                <p>Hari: Senin – Ahad</p>
+                <p>Pukul: 08.00 – 20.00 WIB</p>
+            </div>
+            <div class="footer-section">
+                <h3>OFFLINE STORE</h3>
+                <p>Jl Wiratama no.83A, Kec. Tegalrejo, Yogyakarta</p>
+                <p>(Di depan Soto Pak Sholeh)</p>
+            </div>
+            <div class="footer-section">
+                <h3>FIND US</h3>
+                <a href="#">📱 Instagram</a>
+                <a href="#">🗺️ Google Maps</a>
+                <a href="#">📧 Email</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PASAR KURMA HAMIDAH | Toko Grosir & Distributor Kurma di Jogja</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animation for table rows
+        const tableRows = document.querySelectorAll('tbody tr');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        tableRows.forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-20px)';
+            row.style.transition = `all 0.5s ease ${index * 0.05}s`;
+            observer.observe(row);
+        });
+    </script>
+</body>
+</html>
